@@ -1,0 +1,61 @@
+@font-face{
+   font-family: 'Cyberpunk-1';
+   src: url('./BlenderPro-Bold.woff2');
+}
+@font-face {
+   font-family: 'Cyberpunk-2';
+   src: url('./BlenderPro-Book-a6763c9a.woff2');
+   font-weight: 900;
+}
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+ 
+html,body {
+   height : 100%;
+   width : 100%;
+}
+
+html{
+   scroll-behavior: smooth;
+}
+
+
+body {
+   background-color: #000000;
+   color: #fff;
+   cursor: url('./arrow.cur'), auto;
+}
+
+.main nav a, .main nav img{
+   cursor: url('./link.cur'), auto;
+}
+
+a{
+   cursor: url('./link.cur'), auto;
+}
+
+.customBtn{
+   cursor: url('./link.cur'), auto;
+}
+
+textarea, input{
+   cursor: url('./beam.cur'), auto;
+}
+
+#message{
+   resize: none;
+}
+
+textarea::placeholder, input::placeholder{
+   color: #fbbf24;
+}
+
+.font-1{
+   font-family: 'Cyberpunk-1', sans-serif;
+}
+.font-2{
+   font-family: 'Cyberpunk-2', sans-serif;
+}

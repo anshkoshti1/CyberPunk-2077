@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .active {
+        color: #fbbf24; /* Tailwind's yellow-300 color */
+      }
+      .glow {
+        text-shadow: 0 0 10px #fbbf24, 0 0 30px #fbbf24, 0 0 50px #fbbf24,
+          0 0 70px #fbbf24, 0 0 90px #fbbf24;
+      }
+      section h1 {
+        text-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24, 0 0 30px #fbbf24,
+          0 0 40px #fbbf24, 0 0 50px #fbbf24;
+      }
+      section button:hover{
+        text-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24, 0 0 30px #fbbf24,
+          0 0 40px #fbbf24, 0 0 50px #fbbf24;
+      }
+      .links a:hover{
+        text-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24, 0 0 30px #fbbf24,
+          0 0 40px #fbbf24, 0 0 50px #fbbf24;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main w-full h-[450vh]">
+      <nav class="w-full fixed top-0 left-0 px-5 flex justify-between items-center bg-black bg-opacity-75 py-4 z-50">
+        <img
+          src="./cyberpunk-2077-logo.png"
+          class="w-[200px] mix-blend-lighten filter saturate-150 contrast-125"
+          alt="error"
+        />
+
+        <div class="links flex gap-8 items-center">
+          <a
+        href="#home"
+        class="font-1 text-white text-xl font-semibold tracking-wide hover:text-yellow-300 hover:glow transition duration-300 active"
+        >Home</a
+          >
+          <a
+        href="#about"
+        class="font-1 text-white text-xl font-semibold tracking-wide hover:text-yellow-300 hover:glow transition duration-300"
+        >About</a
+          >
+          <a
+        href="#games"
+        class="font-1 text-white text-xl font-semibold tracking-wide hover:text-yellow-300 hover:glow transition duration-300"
+        >Games</a
+          >
+          <a
+        href="#contact"
+        class="font-1 text-white text-xl font-semibold tracking-wide hover:text-yellow-300 hover:glow transition duration-300"
+        >Contact</a
+          >
+        </div>
+        <style>
+          .active {
+        color: #fbbf24; /* Tailwind's yellow-300 color */
+          }
+          .glow {
+        text-shadow: 0 0 20px #fbbf24, 0 0 40px #fbbf24, 0 0 60px #fbbf24,
+          0 0 80px #fbbf24, 0 0 100px #fbbf24;
+          }
+        </style>
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll("nav a");
+        links.forEach((link) => {
+          link.addEventListener("click", () => {
+            links.forEach((l) =>
+          l.classList.remove("active", "text-yellow-300")
+            );
+            link.classList.add("active", "text-yellow-300");
+          });
+        });
+          });
+        </script>
+      </nav>
+
+      <div class="w-full h-[100vh] overflow-hidden" id="home">
+        <img
+          src="https://i.redd.it/3d-rendered-the-cyberpunk-logo-using-blender-v0-khopj82wqee91.png?width=1920&format=png&auto=webp&s=f42dbd8f5c04aedb9ba9291c1ba4d679029cc1f3"
+          class="cp-img absolute lg:w-3/4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-lighten filter saturate-150 contrast-125"
+          alt="error"
+        />
+        <div
+          class="w-[38rem] h-[25rem] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-800 blur-[70px] z-[-1]"
+        ></div>
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="w-full bg-black flex flex-col items-center justify-center min-h-screen p-6">
+        <!-- About Section -->
+        <section id="about" class="w-4/5 h-[98vh] mx-auto text-center p-10 bg-gray-900 bg-opacity-75 rounded-lg shadow-lg mt-10">
+          <h1 class="font-1 text-5xl font-extrabold text-yellow-300 mb-6 tracking-wider">
+            About Cyberpunk 2077
+          </h1>
+          <p class="font-2 text-lg leading-relaxed text-gray-300">
+            Welcome to <span class="highlight text-yellow-300">Cyberpunk 2077</span>, an open-world action-adventure RPG set in the dystopian metropolis of <span class="highlight text-yellow-300">Night City</span>. Dive into a world where humanity and technology collide, and only the strongest survive.
+          </p>
+          <p class="font-2 text-lg leading-relaxed mt-4 text-gray-300">
+            <span class="highlight text-yellow-300">Cyberpunk 2077</span> is a story-driven, open-world game developed by CD PROJEKT RED. You play as <span class="highlight text-yellow-300">V</span>, a mercenary navigating a high-stakes world of crime and corporate espionage. Customize your character, choose your path, and shape your destiny in a city that knows no mercy.
+          </p>
+          <div class="mt-8">
+            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg?t=1618856444" alt="Cyberpunk 2077" class="w-1/2 mx-auto rounded-lg shadow-lg">
+          </div>
+          <div class="mt-8 text-left text-gray-300">
+            <h2 class="font-1 text-3xl font-bold text-yellow-300 mb-4">Key Features:</h2>
+            <ul class="list-disc list-inside">
+              <li class="mb-2"><span class="font-1 highlight text-yellow-300">Immersive Storyline:</span> Experience a gripping narrative that adapts to your choices.</li>
+              <li class="mb-2"><span class="font-1 highlight text-yellow-300">Open World Exploration:</span> Roam freely in the vast and detailed world of Night City.</li>
+              <li class="mb-2"><span class="font-1 highlight text-yellow-300">Character Customization:</span> Tailor your character's appearance, skills, and cyberware.</li>
+              <li class="mb-2"><span class="font-1 highlight text-yellow-300">Dynamic Combat:</span> Engage in intense gunfights, melee combat, and hacking.</li>
+              <li class="mb-2"><span class="font-1 highlight text-yellow-300">Rich Visuals:</span> Enjoy stunning graphics and a highly detailed environment.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Games Section -->
+        <section id="games" class="w-4/5 h-[178vh] mx-auto text-center p-10 bg-gray-900 bg-opacity-75 rounded-lg shadow-lg mt-10">
+          <h1 class="font-1 text-5xl font-extrabold text-yellow-300 mb-6 tracking-wider">
+            Games
+          </h1>
+          <p class="font-2 text-lg leading-relaxed text-gray-300">
+            Explore other thrilling games developed by CD PROJEKT RED. Each game offers a unique experience, blending immersive storytelling with cutting-edge gameplay.
+          </p>
+          <div class="mt-8 text-left text-gray-300">
+            <h2 class="font-1 text-3xl font-bold text-yellow-300 mb-4 flex justify-center">Featured Games:</h2>
+            <div class="mb-8"></div>
+              <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg?t=1618856444" alt="The Witcher 3: Wild Hunt" class="w-1/2 rounded-lg shadow-lg mt-4 mx-auto">
+              <span class="font-1 highlight text-yellow-300 block text-center mt-4">The Witcher 3: Wild Hunt</span>
+              <p class="text-center mb-16">An epic tale of a monster hunter in a vast open world.</p>
+            </div>
+            <div class="mb-8">
+              <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1284410/header.jpg?t=1618856444" alt="Gwent: The Witcher Card Game" class="w-1/2 rounded-lg shadow-lg mt-4 mx-auto">
+              <span class="font-1 highlight text-yellow-300 block text-center mt-4">Gwent: The Witcher Card Game</span>
+              <p class="text-center mb-16">A strategic card game set in the Witcher universe.</p>
+            </div>
+            <div class="mb-8">
+              <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/973760/header.jpg?t=1618856444" alt="Thronebreaker: The Witcher Tales" class="w-1/2 rounded-lg shadow-lg mt-4 mx-auto">
+              <span class="font-1 highlight text-yellow-300 block text-center mt-4">Thronebreaker: The Witcher Tales</span>
+              <p class="text-center mb-16">A single-player role-playing game set in the Witcher world.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="w-4/5 h-[55vh] mx-auto text-center p-10 bg-gray-900 bg-opacity-75 rounded-lg shadow-lg mt-10">
+          <h1 class="font-1 text-5xl font-extrabold text-yellow-300 mb-6 tracking-wider">
+            Contact Us
+          </h1>
+          <p class="font-2 text-lg leading-relaxed text-gray-300">
+            We'd love to hear from you! Whether you have questions, feedback, or just want to say hi, feel free to reach out.
+          </p>
+          <form class="font-2 text-lg leading-relaxed mt-4 text-gray-300 mx-auto w-3/4"></form>
+            <div class="mb-4">
+              <label for="name" class="block text-yellow-300">Name</label>
+              <input type="text" id="name" class="w-[90vh] p-2 rounded bg-gray-800 text-white" />
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-yellow-300">Email</label>
+              <input type="email" id="email" class="w-[90vh] p-2 rounded bg-gray-800 text-white" />
+            </div>
+            <div class="mb-4">
+              <label for="message" class="block text-yellow-300">Message</label>
+              <textarea id="message" class="w-[90vh] p-2 rounded bg-gray-800 text-white"></textarea>
+            </div>
+            <button type="submit" class="customBtn font-1 px-6 py-3 bg-yellow-300 text-gray-900 rounded-lg hover:bg-yellow-400 transition duration-300 transform hover:scale-105 shadow-md">Send Message</button>
+          </form>
+        </section>
+      </div>
+
+      <footer class="w-full bg-[#0D121D] text-center text-gray-400 p-8 mt-10">
+        <div class="flex justify-center gap-12 mb-6">
+          <a href="#home" class="hover:text-yellow-400 transition duration-300 text-lg font-semibold">Home</a>
+          <a href="#about" class="hover:text-yellow-400 transition duration-300 text-lg font-semibold">About</a>
+          <a href="#games" class="hover:text-yellow-400 transition duration-300 text-lg font-semibold">Games</a>
+          <a href="#contact" class="hover:text-yellow-400 transition duration-300 text-lg font-semibold">Contact</a>
+        </div>
+        <p class="mb-6 text-sm">&copy; 2021 Cyberpunk 2077. All rights reserved.</p>
+        <div class="flex justify-center gap-6">
+          <a href="https://www.facebook.com/CyberpunkGame" target="_blank" class="social-icon transition duration-300">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" 
+                 data-hover="https://img.icons8.com/ios-filled/50/1877F2/facebook-new.png" 
+                 alt="Facebook" class="w-8 h-8">
+          </a>
+          <a href="https://twitter.com/CyberpunkGame" target="_blank" class="social-icon transition duration-300">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" 
+                 data-hover="https://img.icons8.com/ios-filled/50/1DA1F2/twitter.png" 
+                 alt="Twitter" class="w-8 h-8">
+          </a>
+          <a href="https://www.instagram.com/cyberpunkgame/" target="_blank" class="social-icon transition duration-300">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" 
+                 data-hover="https://img.icons8.com/ios-filled/50/E4405F/instagram-new.png" 
+                 alt="Instagram" class="w-8 h-8">
+          </a>
+        </div>
+        <div class="flex justify-center gap-6 mt-6">
+          <a href="https://www.youtube.com/cyberpunkgame" target="_blank" class="social-icon transition duration-300">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" 
+                 data-hover="https://img.icons8.com/ios-filled/50/FF0000/youtube-play.png" 
+                 alt="YouTube" class="w-8 h-8">
+          </a>
+          <a href="https://www.twitch.tv/cdprojektred" target="_blank" class="social-icon transition duration-300">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/twitch.png" 
+                 data-hover="https://img.icons8.com/ios-filled/50/9146FF/twitch.png" 
+                 alt="Twitch" class="w-8 h-8">
+          </a>
+          <a href="https://discord.com/invite/cyberpunkgame" target="_blank" class="social-icon transition duration-300">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" 
+                 data-hover="https://img.icons8.com/ios-filled/50/5865F2/discord-logo.png" 
+                 alt="Discord" class="w-8 h-8">
+          </a>
+        </div>        
+      </footer>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
