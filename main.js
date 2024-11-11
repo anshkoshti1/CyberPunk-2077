@@ -8,8 +8,8 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import { RGBShiftShader } from 'three/examples/jsm/shaders/RGBShiftShader.js';
 import gsap from 'gsap';
-// import LocomotiveScroll from 'locomotive-scroll';
-// const locomotiveScroll = new LocomotiveScroll();
+import LocomotiveScroll from 'locomotive-scroll';
+const locomotiveScroll = new LocomotiveScroll();
 
 
 
@@ -57,6 +57,19 @@ loader.load(
     console.error(error);
   }
 );
+
+// loader.load(
+//   './scene.gltf',
+//   function (gltf) {
+//     model = gltf.scene;
+//     model.position.x = 1.5;
+//     scene.add(model);
+//   },
+//   undefined,
+//   function (error) {
+//     console.error(error);
+//   }
+// );
 
 // renderer
 const renderer = new THREE.WebGLRenderer({
@@ -115,18 +128,3 @@ function animate() {
 animate();
 
 
-document.querySelectorAll('.social-icon img').forEach((icon) => {
-  const originalSrc = icon.src;
-  const hoverSrc = icon.getAttribute('data-hover');
-
-  icon.addEventListener('mouseenter', () => {
-    icon.src = hoverSrc;
-    icon.style.scale = 1.3;
-    icon.style.transition = 'all .3s ease-in-out';
-  });
-
-  icon.addEventListener('mouseleave', () => {
-    icon.src = originalSrc;
-    icon.style.scale = 1;
-  });
-});

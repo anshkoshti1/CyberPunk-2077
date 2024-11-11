@@ -17,15 +17,19 @@ html,body {
    height : 100%;
    width : 100%;
 }
-
+/* 
 html{
    scroll-behavior: smooth;
-}
+} */
 
 
 body {
    background-color: #000000;
    color: #fff;
+   cursor: url('./arrow.cur'), auto;
+}
+
+section label{
    cursor: url('./arrow.cur'), auto;
 }
 

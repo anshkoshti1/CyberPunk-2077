@@ -29,61 +29,111 @@
     </style>
   </head>
   <body>
-    <div class="main w-full h-[450vh]">
+    <div class="main w-full lg:h-[455vh]">
       <nav class="w-full fixed top-0 left-0 px-5 flex justify-between items-center bg-black bg-opacity-75 py-4 z-50">
-        <img
-          src="./cyberpunk-2077-logo.png"
-          class="w-[200px] mix-blend-lighten filter saturate-150 contrast-125"
-          alt="error"
-        />
-
-        <div class="links flex gap-8 items-center">
-          <a
-        href="#home"
-        class="font-1 text-white text-xl font-semibold tracking-wide hover:text-yellow-300 hover:glow transition duration-300 active"
-        >Home</a
-          >
-          <a
-        href="#about"
-        class="font-1 text-white text-xl font-semibold tracking-wide hover:text-yellow-300 hover:glow transition duration-300"
-        >About</a
-          >
-          <a
-        href="#games"
-        class="font-1 text-white text-xl font-semibold tracking-wide hover:text-yellow-300 hover:glow transition duration-300"
-        >Games</a
-          >
-          <a
-        href="#contact"
-        class="font-1 text-white text-xl font-semibold tracking-wide hover:text-yellow-300 hover:glow transition duration-300"
-        >Contact</a
-          >
+        <div class="logo">
+          <img src="./cyberpunk-2077-logo.png" alt="Cyberpunk Logo">
         </div>
-        <style>
-          .active {
-        color: #fbbf24; /* Tailwind's yellow-300 color */
-          }
-          .glow {
-        text-shadow: 0 0 20px #fbbf24, 0 0 40px #fbbf24, 0 0 60px #fbbf24,
-          0 0 80px #fbbf24, 0 0 100px #fbbf24;
-          }
-        </style>
-        <script>
-          document.addEventListener("DOMContentLoaded", () => {
-        const links = document.querySelectorAll("nav a");
-        links.forEach((link) => {
-          link.addEventListener("click", () => {
-            links.forEach((l) =>
-          l.classList.remove("active", "text-yellow-300")
-            );
-            link.classList.add("active", "text-yellow-300");
-          });
-        });
-          });
-        </script>
+        <div class="links flex gap-8 items-center">
+          <a href="#home" class="font-1 text-white text-xl font-semibold tracking-wide active" data-text="Home">Home</a>
+          <a href="#about" class="font-1 text-white text-xl font-semibold tracking-wide" data-text="About">About</a>
+          <a href="#games" class="font-1 text-white text-xl font-semibold tracking-wide" data-text="Games">Games</a>
+          <a href="#contact" class="font-1 text-white text-xl font-semibold tracking-wide" data-text="Contact">Contact</a>
+        </div>
       </nav>
 
-      <div class="w-full h-[100vh] overflow-hidden" id="home">
+      <style>
+        /* Basic navbar styling */
+        nav {
+          width: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          padding: 15px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: rgba(0, 0, 0, 0.8);
+          z-index: 50;
+          font-family: 'Oxanium', sans-serif;
+        }
+    
+        /* Logo styling */
+        .logo img {
+          width: 200px;
+          filter: saturate(1.5) contrast(1.25);
+        }
+    
+        /* Navbar links */
+        .links a {
+          color: #ffffff;
+          font-size: 1.2em;
+          font-weight: 600;
+          text-transform: uppercase;
+          text-decoration: none;
+          margin: 0 15px;
+          position: relative;
+          transition: color 0.3s ease;
+        }
+        .links a:hover {
+          color: #ffd700;
+          text-shadow: 0 0 8px #ffd700, 0 0 12px #ffd700;
+        }
+    
+        /* Active link styling */
+        .active {
+          color: #ffd700;
+          text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+        }
+    
+        /* Glitch effect for hover */
+        .links a:hover::before {
+          content: attr(data-text);
+          position: absolute;
+          left: 2px;
+          text-shadow: -1px 0 #ff007b, 1px 0 #00ffff;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          animation: glitch 0.5s infinite alternate;
+        }
+    
+        @keyframes glitch {
+          0% {
+            clip: rect(0, 9999px, 0, 0);
+            transform: translate(-1px, -1px);
+          }
+          25% {
+            clip: rect(0, 9999px, 0, 0);
+            transform: translate(1px, 1px);
+          }
+          50% {
+            clip: rect(0, 9999px, 0, 0);
+            transform: translate(-1px, -1px);
+          }
+          75% {
+            clip: rect(0, 9999px, 0, 0);
+            transform: translate(1px, 1px);
+          }
+          100% {
+            clip: rect(0, 9999px, 0, 0);
+            transform: translate(-1px, -1px);
+          }
+        }
+      </style>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const links = document.querySelectorAll("nav a");
+          links.forEach((link) => {
+            link.addEventListener("click", () => {
+              links.forEach((l) => l.classList.remove("active"));
+              link.classList.add("active");
+            });
+          });
+        });
+      </script>
+
+      <div class="w-full lg:h-[100vh] overflow-hidden" id="home">
         <img
           src="https://i.redd.it/3d-rendered-the-cyberpunk-logo-using-blender-v0-khopj82wqee91.png?width=1920&format=png&auto=webp&s=f42dbd8f5c04aedb9ba9291c1ba4d679029cc1f3"
           class="cp-img absolute lg:w-3/4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-lighten filter saturate-150 contrast-125"
@@ -97,7 +147,7 @@
 
       <div class="w-full bg-black flex flex-col items-center justify-center min-h-screen p-6">
         <!-- About Section -->
-        <section id="about" class="w-4/5 h-[98vh] mx-auto text-center p-10 bg-gray-900 bg-opacity-75 rounded-lg shadow-lg mt-10">
+        <section id="about" class="w-4/5 lg:h-[98vh] mx-auto text-center p-10 bg-gray-900 bg-opacity-75 rounded-lg shadow-lg mt-10">
           <h1 class="font-1 text-5xl font-extrabold text-yellow-300 mb-6 tracking-wider">
             About Cyberpunk 2077
           </h1>
@@ -123,7 +173,7 @@
         </section>
 
         <!-- Games Section -->
-        <section id="games" class="w-4/5 h-[178vh] mx-auto text-center p-10 bg-gray-900 bg-opacity-75 rounded-lg shadow-lg mt-10">
+        <section id="games" class="w-4/5 sm:h-[117vh] lg:h-[178vh] mx-auto text-center p-10 bg-gray-900 bg-opacity-75 rounded-lg shadow-lg mt-10">
           <h1 class="font-1 text-5xl font-extrabold text-yellow-300 mb-6 tracking-wider">
             Games
           </h1>
@@ -151,7 +201,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="w-4/5 h-[55vh] mx-auto text-center p-10 bg-gray-900 bg-opacity-75 rounded-lg shadow-lg mt-10">
+        <section id="contact" class="w-4/5 lg:h-[55vh] mx-auto text-center p-10 bg-gray-900 bg-opacity-75 rounded-lg shadow-lg mt-10">
           <h1 class="font-1 text-5xl font-extrabold text-yellow-300 mb-6 tracking-wider">
             Contact Us
           </h1>
@@ -161,64 +211,124 @@
           <form class="font-2 text-lg leading-relaxed mt-4 text-gray-300 mx-auto w-3/4"></form>
             <div class="mb-4">
               <label for="name" class="block text-yellow-300">Name</label>
-              <input type="text" id="name" class="w-[90vh] p-2 rounded bg-gray-800 text-white" />
+              <input type="text" id="name" class="sm:w-[40vh] lg:w-[90vh] p-2 rounded bg-gray-800 text-white" />
             </div>
             <div class="mb-4">
               <label for="email" class="block text-yellow-300">Email</label>
-              <input type="email" id="email" class="w-[90vh] p-2 rounded bg-gray-800 text-white" />
+              <input type="email" id="email" class="sm:w-[40vh] lg:w-[90vh] p-2 rounded bg-gray-800 text-white" />
             </div>
             <div class="mb-4">
               <label for="message" class="block text-yellow-300">Message</label>
-              <textarea id="message" class="w-[90vh] p-2 rounded bg-gray-800 text-white"></textarea>
+              <textarea id="message" class="sm:w-[40vh] lg:w-[90vh] p-2 rounded bg-gray-800 text-white"></textarea>
             </div>
             <button type="submit" class="customBtn font-1 px-6 py-3 bg-yellow-300 text-gray-900 rounded-lg hover:bg-yellow-400 transition duration-300 transform hover:scale-105 shadow-md">Send Message</button>
           </form>
         </section>
       </div>
 
-      <footer class="w-full bg-[#0D121D] text-center text-gray-400 p-8 mt-10">
-        <div class="flex justify-center gap-12 mb-6">
-          <a href="#home" class="hover:text-yellow-400 transition duration-300 text-lg font-semibold">Home</a>
-          <a href="#about" class="hover:text-yellow-400 transition duration-300 text-lg font-semibold">About</a>
-          <a href="#games" class="hover:text-yellow-400 transition duration-300 text-lg font-semibold">Games</a>
-          <a href="#contact" class="hover:text-yellow-400 transition duration-300 text-lg font-semibold">Contact</a>
+      <footer>
+        <h2 class="footer-heading">Cyberpunk 2077</h2>
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Contact</a>
         </div>
-        <p class="mb-6 text-sm">&copy; 2021 Cyberpunk 2077. All rights reserved.</p>
-        <div class="flex justify-center gap-6">
-          <a href="https://www.facebook.com/CyberpunkGame" target="_blank" class="social-icon transition duration-300">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" 
-                 data-hover="https://img.icons8.com/ios-filled/50/1877F2/facebook-new.png" 
-                 alt="Facebook" class="w-8 h-8">
-          </a>
-          <a href="https://twitter.com/CyberpunkGame" target="_blank" class="social-icon transition duration-300">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" 
-                 data-hover="https://img.icons8.com/ios-filled/50/1DA1F2/twitter.png" 
-                 alt="Twitter" class="w-8 h-8">
-          </a>
-          <a href="https://www.instagram.com/cyberpunkgame/" target="_blank" class="social-icon transition duration-300">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" 
-                 data-hover="https://img.icons8.com/ios-filled/50/E4405F/instagram-new.png" 
-                 alt="Instagram" class="w-8 h-8">
-          </a>
+        <div class="social-icons">
+          <a href="#"><img src="https://img.icons8.com/fluency/48/000000/facebook-new.png" alt="Facebook"></a>
+          <a href="#"><img src="https://img.icons8.com/fluency/48/000000/twitter.png" alt="Twitter"></a>
+          <a href="#"><img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram"></a>
         </div>
-        <div class="flex justify-center gap-6 mt-6">
-          <a href="https://www.youtube.com/cyberpunkgame" target="_blank" class="social-icon transition duration-300">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png" 
-                 data-hover="https://img.icons8.com/ios-filled/50/FF0000/youtube-play.png" 
-                 alt="YouTube" class="w-8 h-8">
-          </a>
-          <a href="https://www.twitch.tv/cdprojektred" target="_blank" class="social-icon transition duration-300">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/twitch.png" 
-                 data-hover="https://img.icons8.com/ios-filled/50/9146FF/twitch.png" 
-                 alt="Twitch" class="w-8 h-8">
-          </a>
-          <a href="https://discord.com/invite/cyberpunkgame" target="_blank" class="social-icon transition duration-300">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" 
-                 data-hover="https://img.icons8.com/ios-filled/50/5865F2/discord-logo.png" 
-                 alt="Discord" class="w-8 h-8">
-          </a>
-        </div>        
+        <div class="footer-copyright">
+          &copy; 2023 Cyberpunk 2077. All rights reserved.
+        </div>
       </footer>
+      <style>
+        /* General styling for the footer */
+        body {
+          font-family: 'Oxanium', sans-serif;
+          background-color: #000000;
+          color: #f5f5f5;
+          margin: 0;
+          padding: 0;
+        }
+        footer {
+          background: #1a1a1a;
+          padding: 40px 20px;
+          color: #f5f5f5;
+          text-align: center;
+          position: relative;
+        }
+    
+        /* Glitch effect for heading */
+        .footer-heading {
+          font-size: 2em;
+          color: #FFD700;
+          position: relative;
+          display: inline-block;
+        }
+        .footer-heading::after {
+          content: "Cyberpunk 2077";
+          position: absolute;
+          left: 2px;
+          top: 2px;
+          color: #ff007b;
+          overflow: hidden;
+          white-space: nowrap;
+          clip: rect(0, 0, 0, 0);
+          animation: glitch 2s infinite;
+        }
+    
+        @keyframes glitch {
+          0%, 100% { clip: rect(0, 0, 0, 0); }
+          10%, 30%, 50%, 70% { clip: rect(10px, 9999px, 80px, 0); transform: translate(-3px, 0); }
+          20%, 40%, 60% { clip: rect(0, 9999px, 50px, 0); transform: translate(3px, 0); }
+        }
+    
+        /* Footer links */
+        .footer-links {
+          margin: 20px 0;
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          text-transform: uppercase;
+        }
+        .footer-links a {
+          color: #fbbf24;
+          text-decoration: none;
+          position: relative;
+          font-weight: bold;
+        }
+        .footer-links a:hover {
+          color: #ff007b;
+          text-shadow: 0 0 5px #ff007b, 0 0 10px #ff007b;
+        }
+    
+        /* Social media icons with neon effect */
+        .social-icons {
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          margin-top: 20px;
+        }
+        .social-icons a img {
+          width: 40px;
+          height: 40px;
+          transition: transform 0.3s ease, filter 0.3s ease;
+          filter: brightness(1.2);
+        }
+        .social-icons a img:hover {
+          transform: scale(1.1);
+          filter: drop-shadow(0 0 6px #00ffff);
+        }
+    
+        /* Footer copyright */
+        .footer-copyright {
+          margin-top: 30px;
+          font-size: 0.9em;
+          color: #999;
+        }
+      </style>
     </div>
     <script type="module" src="main.js"></script>
   </body>
